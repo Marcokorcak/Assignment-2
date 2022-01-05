@@ -186,20 +186,40 @@ console.log("\n10: myUnshift()")
 console.log(myUnshift(arrayTemp1,2)); //looks for value 2 and returns the last instance of it 
 
 ///----------------------------
+
 Object.prototype.grabKeys = function () {
-    let keyArray = [];
-    for (element in this) {
-      if (this.hasOwnProperty(element)) {
-        keyArray.push(element);
-      }
+  let keyArr = [];
+  for (element in this) {
+    if (this.hasOwnProperty(element)) {// Function will print out itself as an element without hasOwnProperty
+      keyArr.push(element); 
     }
-    return keyArray;
-  };
-  
-  let testDict1 = {
-    3: 17,
-    4: 12,
-    5: 26,
-  };
-  console.log("\n11: grabKeys()")
-  console.log(testDict1.grabKeys());
+  }
+  return keyArr; //returns key array
+};
+
+let testDict1 = {
+  3: 9,
+  4: 28,
+  5: 16,
+};
+console.log("\n11: grabKeys())")
+console.log(testDict1.grabKeys());
+///----------------------------------
+Object.prototype.grabValues = function () {
+  let valArr = [];
+  for (element in this) {
+    if (this.hasOwnProperty(element)) {
+      valArr.push(this[element]);
+    }
+  }
+  return valArr; //returns the array
+};
+
+let testDict2 = {
+  A: "orange",
+  B: "bannana",
+  C: "kiwi",
+};
+
+console.log("\n12: grabValues())")
+console.log(testDict2.grabValues());
